@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    
+    <style>
+        /* General Styling */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+        }
+
+        /* Landing Page */
+        .landing-container {
+            text-align: center;
+            padding: 100px 20px;
+            background: linear-gradient(to right, #2874f0, #1a52c2);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .landing-container h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .landing-container p {
+            font-size: 1.5rem;
+            margin: 20px 0;
+        }
+
+        .landing-container button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            color: #fff;
+            background: #ff9f00;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .landing-container button:hover {
+            background: #ff8100;
+        }
+    </style>
+</head>
+<body>
+    <div class="landing-container">
+        <h1>Welcome to Task Manager</h1>
+        <p>Stay organized, manage your tasks efficiently, and never miss a deadline!</p>
+        <button onclick="startApp()">Get Started</button>
+    </div>
+
+    <script>
+        function startApp() {
+            window.location.href = "dashboard.html";
+        }
+    </script>
+</body>
+</html>
+
+
+

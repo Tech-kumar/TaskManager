@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager Dashboard</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            height: 100vh;
+            width: 100vw;
+            background-color: #f4f4f4;
+        }
+        .container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+        .sidebar {
+            width: 18%;
+            background: #007bff;
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            gap: 15px;
+            box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.2);
+        }
+        .dashboard-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        header {
+            background: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            border-radius: 10px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .task-section {
+            width: 80%;
+            margin-top: 20px;
+            text-align: center;
+        }
+        input, button {
+            padding: 12px;
+            margin: 5px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .task-list-container {
+            width: 80%;
+            margin-top: 20px;
+        }
+        #task-list {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .red {
+            background: #ff4d4d;
+            color: white;
+        }
+        .green {
+            background: #28a745;
+            color: white;
+        }
+        .edit-btn, .delete-btn {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .edit-btn {
+            background: #ffc107;
+            color: black;
+        }
+        .delete-btn {
+            background: #dc3545;
+            color: white;
+        }
+        .task-icons {
+            display: flex;
+            gap: 8px;
+        }
+        .task-icons i {
+            cursor: pointer;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+        .task-icons i:hover {
+            opacity: 0.7;
+        }
+        .notification-info {
+            margin-top: 20px;
+            padding: 15px;
+            background: #ffcc00;
+            color: black;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            border-radius: 8px;
+        }
+        .notification-info a {
+            color: #0056b3;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .notification-info a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Left Sidebar -->
+        <div class="sidebar">
+            <h2>🚀 Productivity Tips</h2>
+            <p><i class="fas fa-clock"></i> Plan tasks daily.</p>
+            <p><i class="fas fa-check-circle"></i> Use a checklist.</p>
+            <p><i class="fas fa-stopwatch"></i> Follow Pomodoro technique.</p>
+            <p><i class="fas fa-chart-line"></i> Track progress weekly.</p>
+            <p><i class="fas fa-tasks"></i> Avoid multitasking.</p>
+            <p><i class="fas fa-brain"></i> Take regular breaks.</p>
+            <p><i class="fas fa-moon"></i> Get enough sleep.</p>
+        </div>
+
+        <!-- Main Dashboard -->
+        <div class="dashboard-container">
+            <header>📌 Task Manager Dashboard</header>
+
+            <section class="task-section">
+                <form id="task-form">
+                    <input type="text" id="task-details" placeholder="Enter task details" required>
+                    <input type="datetime-local" id="task-deadline" required>
+                    <input type="text" id="phone-number" placeholder="Enter phone number" required>
+                    <button type="submit"><i class="fas fa-plus"></i> Add Task</button>
+                </form>
+            </section>
+
+            <section class="task-list-container">
+                <h2>Your Tasks</h2>
+                <ul id="task-list"></ul>
+            </section>
+
+            <!-- Subscription Notice -->
+            <div class="notification-info">
+                💡 If you want any notifications related to these tasks, you need to take a subscription from 
+                <a href="https://www.twilio.com" target="_blank">Twilio's website</a>.
+            </div>
+        </div>
+
+        <!-- Right Sidebar -->
+        <div class="sidebar">
+            <h2>💡 Motivation & Hacks</h2>
+            <p><i class="fas fa-lightbulb"></i> Break big tasks into smaller steps.</p>
+            <p><i class="fas fa-calendar-alt"></i> Set realistic deadlines.</p>
+            <p><i class="fas fa-bell"></i> Use reminders & alerts.</p>
+            <p><i class="fas fa-user-check"></i> Focus on one task at a time.</p>
+            <p><i class="fas fa-medal"></i> Reward yourself for achievements.</p>
+            <p><i class="fas fa-headphones"></i> Listen to music while working.</p>
+            <p><i class="fas fa-thumbs-up"></i> Stay positive and motivated!</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
